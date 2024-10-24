@@ -1,6 +1,5 @@
 
 import { useQuery } from "@tanstack/react-query";
-
 import { CACHE_KEY_GENERES } from "../constants";
 import APIClient, { FetchResponse } from "../service/apiClient";
 
