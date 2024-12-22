@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { CACHE_KEY_PLATFORMS } from "../constants";
 import APIClient from "../service/apiClient";
 import { FetchGameResponse } from "./useGames";
+import ms from "ms";
 
 const apiClient = new APIClient<Platform>('/platforms/lists/parents')
 
@@ -14,7 +15,7 @@ export interface Platform {
 const usePlatform = () => useQuery<FetchGameResponse<Platform>>({
     queryKey: CACHE_KEY_PLATFORMS,
     queryFn: ()=> apiClient.getAll({}),
-    staleTime: 24 * 60 * 60 * 1000
+    staleTime: ms('24h')
 })
 
 export default usePlatform;
